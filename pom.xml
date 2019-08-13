@@ -102,6 +102,7 @@
     <spark.version>1.6.1</spark.version>
     <scala.version>2.10.4</scala.version>
     <scala.binary.version>2.10</scala.binary.version>
+    <phoenix-spark.classifier>spark1</phoenix-spark.classifier>
 
     <!-- Test Dependencies -->
     <mockito-all.version>1.8.5</mockito-all.version>
@@ -982,5 +983,16 @@
         </plugins>
       </build>
     </profile>
+    
+    <profile>
+      <id>spark2</id>
+      <properties>
+        <spark.version>2.0.2</spark.version>
+      	<scala.version>2.11.8</scala.version>
+      	<scala.binary.version>2.11</scala.binary.version>
+      	<phoenix-spark.classifier>spark2</phoenix-spark.classifier>
+      </properties>
+    </profile>
+    
   </profiles>
 </project>

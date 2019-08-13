@@ -32,6 +32,7 @@
   </parent>
   <artifactId>phoenix-spark</artifactId>
   <name>Phoenix - Spark</name>
+  <version>4.9.0-HBase-1.1-SNAPSHOT</version>
 
   <properties>
     <top.dir>${project.basedir}/..</top.dir>
@@ -41,6 +42,7 @@
     <dependency>
       <groupId>org.apache.phoenix</groupId>
       <artifactId>phoenix-core</artifactId>
+      <version>4.9.0-HBase-1.1</version>
     </dependency>
 
     <!-- Force import of Spark's servlet API for unit tests -->
@@ -76,6 +78,7 @@
       <groupId>org.apache.phoenix</groupId>
       <artifactId>phoenix-core</artifactId>
       <classifier>tests</classifier>
+      <version>4.9.0-HBase-1.1</version>
       <scope>test</scope>
     </dependency>
 
@@ -556,6 +559,26 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <executions>
+          	<execution>
+            <id>default-jar</id>
+            <phase>none</phase>
+          </execution>
+            <execution>
+              <id>pre-process-classes</id>
+              <phase>compile</phase>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+              <configuration>
+                <classifier>${phoenix-spark.classifier}</classifier>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
     </plugins>
   </build>
 </project>
